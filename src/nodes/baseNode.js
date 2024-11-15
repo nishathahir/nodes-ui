@@ -1,6 +1,8 @@
 import { Handle, Position } from "reactflow";
 
 import PropTypes from "prop-types";
+import styles from "../styles/baseNode.module.css";
+import { useState } from "react";
 
 export const BaseNode = ({
   id,
@@ -8,20 +10,27 @@ export const BaseNode = ({
   inputs = [],
   outputs = [],
   children,
-  customStyles = {},
+  customStyles,
+  icon: Icon,
 }) => {
+  const [isClicked, setIsClicked] = useState(false);
+  const [clickedNodeId, setClickedNodeId] = useState("");
+  const handleOnClick = () => {
+    setClickedNodeId(id);
+    setIsClicked((prevState) => !prevState);
+  };
+
   return (
     <div
-      style={{
-        width: 200,
-        height: 80,
-        border: "1px solid black",
-        padding: "5px",
-        ...customStyles,
-      }}
+      className={`${styles.nodeBox} ${
+        clickedNodeId == id ? styles["nodeBox-clicked"] : ""
+      }`}
+      style={customStyles}
+      onClick={handleOnClick}
     >
-      <div>
-        <span>{title}</span>
+      <div className={styles.titleContainer}>
+        {Icon && <Icon className={styles.icon} />}{" "}
+        <span className={styles.title}>{title}</span>
       </div>
       <div>{children}</div>
       {inputs.map((input, index) => (
@@ -31,6 +40,7 @@ export const BaseNode = ({
           position={input.position || Position.Left}
           id={`${id}-${input.id}`}
           style={input.style || {}}
+          className={styles["handle-input"]}
         />
       ))}
       {outputs.map((output, index) => (
@@ -40,6 +50,7 @@ export const BaseNode = ({
           position={output.position || Position.Right}
           id={`${id}-${output.id}`}
           style={output.style || {}}
+          className={styles["handle-output"]}
         />
       ))}
     </div>

@@ -1,5 +1,7 @@
 import { BaseNode } from "./baseNode";
+import OutputIcon from "@mui/icons-material/Output";
 import { Position } from "reactflow";
+import styles from "../styles/node.module.css";
 import { useState } from "react";
 
 export const OutputNode = ({ id, data }) => {
@@ -14,19 +16,23 @@ export const OutputNode = ({ id, data }) => {
   const inputs = [{ id: "value", position: Position.Left }];
 
   return (
-    <BaseNode id={id} title="Output" inputs={inputs}>
-      <div>
-        <label>
-          Name:
+    <BaseNode id={id} title="Output" inputs={inputs} icon={OutputIcon}>
+      <div className="mt-2 ml-3">
+        <div className="row">
+          <label>Name</label>
+        </div>
+        <div className="row mt-0 pt-0 mb-2">
           <input type="text" value={currName} onChange={handleNameChange} />
-        </label>
-        <label>
-          Type:
+        </div>
+        <div className="row">
+          <label>Type</label>
+        </div>
+        <div className="row">
           <select value={outputType} onChange={handleTypeChange}>
             <option value="Text">Text</option>
             <option value="File">Image</option>
           </select>
-        </label>
+        </div>
       </div>
     </BaseNode>
   );

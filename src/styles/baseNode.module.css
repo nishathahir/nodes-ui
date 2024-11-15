@@ -1,0 +1,49 @@
+.nodeBox {
+  width: 200px;
+  height: auto;
+  border: 0.5px solid #7272f3;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 2px #cecffc;
+  padding: 10px;
+}
+
+.nodeBox:hover {
+  box-shadow: 0px 0px 0px 4px #cecffc;
+}
+
+.nodeBox-clicked {
+  box-shadow: 0px 0px 0px 4px #a9abf7;
+}
+.handle-input {
+  background: rgb(255, 255, 255);
+  border: 1px solid #666666;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  left: -7px;
+}
+.handle-output {
+  background: rgb(255, 255, 255);
+  border: 1px solid #666666;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  right: -7px;
+}
+.titleContainer {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  color: #5d7f9e;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.icon {
+  margin-right: 5px;
+  color: #5d7f9e;
+  font-size: 14px !important;
+}

@@ -1,13 +1,35 @@
 import { Handle, Position } from "reactflow";
+import { useEffect, useRef, useState } from "react";
 
-import { BaseNode } from "./baseNode"; // Assuming BaseNode is in the same directory
-import { useState } from "react";
+import { BaseNode } from "./baseNode";
+import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined";
+import styles from "../styles/node.module.css";
 
 export const NotesNode = ({ id, data }) => {
-  const [noteText, setNoteText] = useState(data?.noteText);
+  const [noteText, setNoteText] = useState(data?.noteText || "");
+  const textareaRef = useRef(null); // Create a ref to the textarea
 
+  // Update the note text
   const handleNoteChange = (e) => {
     setNoteText(e.target.value);
+  };
+
+  // Function to adjust the height of the textarea dynamically
+  useEffect(() => {
+    if (textareaRef.current) {
+      // Reset the height to 'auto' so it can resize properly
+      textareaRef.current.style.height = "auto";
+      // Set the height to scrollHeight (height of the content)
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+  }, [noteText]); // This will trigger on every change of noteText
+
+  // Custom styles for the node
+  const customStyles = {
+    backgroundColor: "#f0f8ff", // You can change the background color here
+    padding: "5px",
+    borderRadius: "4px",
+    fontSize: "14px",
   };
 
   return (
@@ -16,6 +38,8 @@ export const NotesNode = ({ id, data }) => {
       title="Notes"
       inputs={[]}
       outputs={[{ id: "output", position: Position.Right }]}
+      icon={InsertCommentOutlinedIcon}
+      customStyles={customStyles}
     >
       <div
         style={{
@@ -26,21 +50,15 @@ export const NotesNode = ({ id, data }) => {
         }}
       >
         <textarea
-          style={{
-            width: "100%",
-            height: "100%",
-            padding: "5px",
-            boxSizing: "border-box", // Prevents the textarea from overflowing
-            resize: "none", // Disables resizing of the textarea
-            border: "none",
-            borderRadius: "4px",
-          }}
+          ref={textareaRef} // Assign the ref to the textarea
+          className={styles["notes"]}
           value={noteText}
           onChange={handleNoteChange}
-          placeholder="Type your note here..."
+          style={{
+            ...customStyles,
+          }}
         />
       </div>
-      {/* Optional Handle for output if you want to connect it to other nodes */}
       <Handle type="source" position={Position.Right} id={`${id}-output`} />
     </BaseNode>
   );

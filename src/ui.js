@@ -45,6 +45,7 @@ const selector = (state) => ({
 
 export const PipelineUI = () => {
   const reactFlowWrapper = useRef(null);
+
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
   const {
     nodes,
@@ -100,7 +101,11 @@ export const PipelineUI = () => {
     event.preventDefault();
     event.dataTransfer.dropEffect = "move";
   }, []);
-
+  const connectionLineStyle = {
+    stroke: "#7272f3",
+    strokeWidth: 1,
+    strokeDasharray: "3,3",
+  };
   return (
     <>
       <div ref={reactFlowWrapper} style={{ width: "100wv", height: "70vh" }}>
@@ -117,6 +122,7 @@ export const PipelineUI = () => {
           proOptions={proOptions}
           snapGrid={[gridSize, gridSize]}
           connectionLineType="smoothstep"
+          connectionLineStyle={connectionLineStyle} // Apply dotted line style
         >
           <Background color="#aaa" gap={gridSize} />
           <Controls />

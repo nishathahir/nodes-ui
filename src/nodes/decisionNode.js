@@ -1,6 +1,8 @@
 import { Handle, Position } from "reactflow";
 
-import { BaseNode } from "./baseNode"; // Assuming BaseNode is in the same directory
+import { BaseNode } from "./baseNode";
+import QuestionMarkOutlinedIcon from "@mui/icons-material/QuestionMarkOutlined";
+import styles from "../styles/node.module.css";
 import { useState } from "react";
 
 export const DecisionNode = ({ id, data }) => {
@@ -16,8 +18,13 @@ export const DecisionNode = ({ id, data }) => {
   ];
 
   return (
-    <BaseNode id={id} title="Decision Node" outputs={outputs}>
-      <div>
+    <BaseNode
+      id={id}
+      title="Decision Node"
+      outputs={outputs}
+      icon={QuestionMarkOutlinedIcon}
+    >
+      <div className="mt-2 ml-2">
         <label>
           Decision:
           <select value={decision} onChange={handleDecisionChange}>
@@ -25,9 +32,12 @@ export const DecisionNode = ({ id, data }) => {
             <option value="No">No</option>
           </select>
         </label>
-      </div>
-      <div>
-        <p>Current decision: {decision}</p>
+        <label>Current decision</label>
+        <div>
+          <p className={styles["node-desc"]} style={{ marginLeft: "5px" }}>
+            {decision}
+          </p>
+        </div>
       </div>
       <Handle
         type="source"

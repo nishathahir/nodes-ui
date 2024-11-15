@@ -1,7 +1,15 @@
 // toolbar.js
 
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { DraggableNode } from "./draggableNode";
-
+import InputIcon from "@mui/icons-material/Input";
+import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined";
+import OutputIcon from "@mui/icons-material/Output";
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import QuestionMarkOutlinedIcon from "@mui/icons-material/QuestionMarkOutlined";
+import TextSnippetOutlinedIcon from "@mui/icons-material/TextSnippetOutlined";
+import ToggleOffOutlinedIcon from "@mui/icons-material/ToggleOffOutlined";
+import UploadFileIcon from "@mui/icons-material/UploadFile";
 export const PipelineToolbar = () => {
   return (
     <div style={{ padding: "10px" }}>
@@ -11,17 +19,38 @@ export const PipelineToolbar = () => {
           display: "flex",
           flexWrap: "wrap",
           gap: "10px",
+          justifyContent: "center",
         }}
       >
-        <DraggableNode type="customInput" label="Input" />
-        <DraggableNode type="llm" label="LLM" />
-        <DraggableNode type="customOutput" label="Output" />
-        <DraggableNode type="text" label="Text" />
-        <DraggableNode type="toggleNode" label="Toggle" />
-        <DraggableNode type="dateNode" label="Date" />
-        <DraggableNode type="uploadFile" label="Upload File" />
-        <DraggableNode type="notesNode" label="Notes" />
-        <DraggableNode type="decisionNode" label="Decision Node" />
+        <DraggableNode type="customInput" label="Input" icon={InputIcon} />
+        <DraggableNode type="llm" label="LLM" icon={PsychologyIcon} />
+        <DraggableNode type="customOutput" label="Output" icon={OutputIcon} />
+        <DraggableNode
+          type="text"
+          label="Text"
+          icon={TextSnippetOutlinedIcon}
+        />
+        <DraggableNode
+          type="toggleNode"
+          label="Toggle"
+          icon={ToggleOffOutlinedIcon}
+        />
+        <DraggableNode type="dateNode" label="Date" icon={CalendarMonthIcon} />
+        <DraggableNode
+          type="uploadFile"
+          label="Upload File"
+          icon={UploadFileIcon}
+        />
+        <DraggableNode
+          type="notesNode"
+          label="Notes"
+          icon={InsertCommentOutlinedIcon}
+        />
+        <DraggableNode
+          type="decisionNode"
+          label="Decision"
+          icon={QuestionMarkOutlinedIcon}
+        />
       </div>
     </div>
   );
