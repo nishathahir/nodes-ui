@@ -92,6 +92,7 @@ export const TextNode = ({ id, data }) => {
 
     setCurrText(newText);
 
+    // Update inputs with the newly added variable
     const newInput = {
       id: defaultVarName, // The variable name is the ID
       position: Position.Left,
@@ -100,7 +101,9 @@ export const TextNode = ({ id, data }) => {
 
     setInputs((prevInputs) => [...prevInputs, newInput]);
 
+    // Use setTimeout to adjust the cursor position after state update
     setTimeout(() => {
+      // Move the cursor after the inserted variable
       textareaRef.current.selectionStart = textareaRef.current.selectionEnd =
         cursorPos + `{{${defaultVarName}}}`.length;
     }, 0);
