@@ -26,7 +26,7 @@ export const NotesNode = ({ id, data }) => {
 
   // Custom styles for the node
   const customStyles = {
-    backgroundColor: "#f0f8ff", // You can change the background color here
+    backgroundColor: "#f0f0ff", // You can change the background color here
     padding: "5px",
     borderRadius: "4px",
     fontSize: "14px",

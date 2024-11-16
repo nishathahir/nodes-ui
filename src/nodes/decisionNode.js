@@ -39,18 +39,6 @@ export const DecisionNode = ({ id, data }) => {
           </p>
         </div>
       </div>
-      <Handle
-        type="source"
-        position={Position.Right}
-        id={`${id}-yes`}
-        style={{ display: decision === "Yes" ? "block" : "none" }}
-      />
-      <Handle
-        type="source"
-        position={Position.Right}
-        id={`${id}-no`}
-        style={{ display: decision === "No" ? "block" : "none" }}
-      />
     </BaseNode>
   );
 };

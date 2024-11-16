@@ -1,15 +1,17 @@
 import { BaseNode } from "./baseNode"; // Assuming BaseNode is in the same directory
+import { Position } from "reactflow";
 import { Switch } from "@mui/material"; // Importing the Switch component
 import ToggleOffOutlinedIcon from "@mui/icons-material/ToggleOffOutlined"; // Assuming you're using this icon
 import styles from "../styles/node.module.css";
 import { useState } from "react";
 
-export const ToggleNode = ({ id, outputs }) => {
+export const ToggleNode = ({ id }) => {
   const [isToggled, setIsToggled] = useState(false);
 
   const handleToggle = (event) => {
     setIsToggled(event.target.checked);
   };
+  const outputs = [{ id: "output", position: Position.Right }];
 
   return (
     <BaseNode

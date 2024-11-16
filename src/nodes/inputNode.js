@@ -18,7 +18,7 @@ export const InputNode = ({ id, data }) => {
   const handleNameChange = (e) => setCurrName(e.target.value);
   const handleTypeChange = (e) => setInputType(e.target.value);
 
-  const outputs = [{ id: "value", position: Position.Right }];
+  const outputs = [{ id: "output", position: Position.Right }];
 
   return (
     <BaseNode id={id} title="Input" outputs={outputs} icon={InputIcon}>

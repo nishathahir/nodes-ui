@@ -5,8 +5,11 @@ import styles from "../styles/node.module.css";
 
 export const LLMNode = ({ id, data }) => {
   const inputs = [
-    { id: "system", position: Position.Left, style: { top: `${100 / 3}%` } },
-    { id: "prompt", position: Position.Left, style: { top: `${200 / 3}%` } },
+    { id: "system", position: Position.Left, style: { top: `${100 / 1}%` } },
+    // { id: "prompt", position: Position.Left, style: { top: `${200 / 6}%` } },
+    // { id: "prompt", position: Position.Left, style: { top: `${300 / 6}%` } },
+    // { id: "prompt", position: Position.Left, style: { top: `${400 / 6}%` } },
+    // { id: "prompt", position: Position.Left, style: { top: `${500 / 6}%` } },
   ];
   const outputs = [{ id: "response", position: Position.Right }];
 

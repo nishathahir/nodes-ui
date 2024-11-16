@@ -51,10 +51,17 @@ export const TextNode = ({ id, data }) => {
           return null;
         }
 
+        // Calculate uniform spacing
+        const totalInputs = existingVariables.length;
+        const spacing = 100 / (totalInputs + 1); // Equal divisions of space
+        const topPosition = spacing * (index + 1); // Linear progression
+
         return {
           id: variableName,
           position: Position.Left,
-          style: { top: `${(index * 100) / (existingVariables.length + 1)}%` },
+          style: {
+            top: `${topPosition}%`,
+          },
         };
       })
       .filter(Boolean);
@@ -86,9 +93,9 @@ export const TextNode = ({ id, data }) => {
     setCurrText(newText);
 
     const newInput = {
-      id: defaultVarName,
+      id: defaultVarName, // The variable name is the ID
       position: Position.Left,
-      style: { centre: `${(inputs.length * 100) / (inputs.length + 1)}%` },
+      style: { top: `${(inputs.length * 100) / (inputs.length + 1)}%` },
     };
 
     setInputs((prevInputs) => [...prevInputs, newInput]);
@@ -138,23 +145,32 @@ export const TextNode = ({ id, data }) => {
         <div className="row">
           <div className="col-12">
             <Tooltip
-              title="Invalid variable format - nested variables are not allowed"
+              title="Invalid syntax: Variable names must only include numbers, letters, and underscores and cannot start with numbers."
               open={!isValidVariable}
-              arrow
-            >
-              <textarea
-                className={styles["text"]}
-                ref={textareaRef}
-                value={currText}
-                onChange={handleTextChange}
-                style={{
-                  width: "90%",
-                  minHeight: "40px",
-                  resize: "none",
-                  borderColor: isValidVariable ? "" : "red",
-                }}
-              />
-            </Tooltip>
+              componentsProps={{
+                tooltip: {
+                  sx: {
+                    backgroundColor: "#000000c",
+                    color: "#fa8072",
+                    width: "150px",
+                    padding: "6px",
+                  },
+                },
+              }}
+            />
+
+            <textarea
+              className={styles["text"]}
+              ref={textareaRef}
+              value={currText}
+              onChange={handleTextChange}
+              style={{
+                width: "90%",
+                minHeight: "40px",
+                resize: "none",
+                borderColor: isValidVariable ? "" : "red",
+              }}
+            />
           </div>
         </div>
       </div>
