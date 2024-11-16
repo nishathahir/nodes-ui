@@ -17,8 +17,8 @@
 .handle-input {
   background: rgb(255, 255, 255);
   border: 1px solid #666666;
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
   position: absolute;
   left: -7px;
@@ -26,8 +26,8 @@
 .handle-output {
   background: rgb(255, 255, 255);
   border: 1px solid #666666;
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
   right: -7px;
 }

@@ -160,20 +160,20 @@ export const TextNode = ({ id, data }) => {
                   },
                 },
               }}
-            />
-
-            <textarea
-              className={styles["text"]}
-              ref={textareaRef}
-              value={currText}
-              onChange={handleTextChange}
-              style={{
-                width: "90%",
-                minHeight: "40px",
-                resize: "none",
-                borderColor: isValidVariable ? "" : "red",
-              }}
-            />
+            >
+              <textarea
+                className={styles["text"]}
+                ref={textareaRef}
+                value={currText}
+                onChange={handleTextChange}
+                style={{
+                  width: "90%",
+                  minHeight: "40px",
+                  resize: "none",
+                  borderColor: isValidVariable ? "" : "red",
+                }}
+              />
+            </Tooltip>
           </div>
         </div>
       </div>

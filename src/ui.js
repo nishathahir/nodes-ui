@@ -150,7 +150,6 @@ export const PipelineUI = () => {
   const edgeStyles = (edge) => {
     return {
       arrowHeadType: "none", // Add this line
-      type: "buttonEdge",
       ...edge,
       style: {
         ...edge.style,
@@ -199,7 +198,6 @@ export const PipelineUI = () => {
             onDragOver={onDragOver}
             onInit={setReactFlowInstance}
             nodeTypes={nodeTypes}
-            edgeTypes={edgeTypes}
             proOptions={proOptions}
             snapGrid={[gridSize, gridSize]}
             connectionLineType="smoothstep"
