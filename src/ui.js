@@ -27,21 +27,6 @@ import { useStore } from "./store";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
-// const nodeTypes = {
-//   customInput: InputNode,
-//   llm: LLMNode,
-//   customOutput: OutputNode,
-//   text: TextNode,
-//   toggleNode: ToggleNode,
-//   dateNode: DateNode,
-//   uploadFile: UploadFileNode,
-//   notesNode: NotesNode,
-//   decisionNode: DecisionNode,
-// };
-
-// const edgeTypes = {
-//   buttonEdge: ButtonEdge,
-// };
 
 const selector = (state) => ({
   nodes: state.nodes,
@@ -70,12 +55,6 @@ export const PipelineUI = () => {
     []
   );
 
-  const edgeTypes = useMemo(
-    () => ({
-      buttonEdge: ButtonEdge,
-    }),
-    []
-  );
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
   const {
     nodes,
