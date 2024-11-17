@@ -72,10 +72,8 @@ export const PipelineUI = () => {
   };
   const onConnect = useCallback(
     (params) => {
-      // Ensure the edge type is set to 'buttonEdge'
       storeOnConnect({
         ...params,
-        type: "buttonEdge", // Ensures that the edge type is set to buttonEdge
       });
     },
     [storeOnConnect] // Make sure the storeOnConnect function is up-to-date

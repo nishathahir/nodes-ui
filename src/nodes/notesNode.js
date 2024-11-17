@@ -59,7 +59,6 @@ export const NotesNode = ({ id, data }) => {
           }}
         />
       </div>
-      <Handle type="source" position={Position.Right} id={`${id}-output`} />
     </BaseNode>
   );
 };
