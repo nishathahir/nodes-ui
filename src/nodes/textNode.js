@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { BaseNode } from "./baseNode";
 import CodeOffIcon from "@mui/icons-material/CodeOff";
 import DataObjectIcon from "@mui/icons-material/DataObject";
+import TextSnippetIcon from "@mui/icons-material/TextSnippet";
 import { Tooltip } from "@mui/material";
 import styles from "../styles/node.module.css";
 
@@ -106,6 +107,7 @@ export const TextNode = ({ id, data }) => {
       inputs={inputs}
       outputs={outputs}
       customStyles={{}}
+      icon={TextSnippetIcon}
     >
       {" "}
       <div className={styles["node"]}>
